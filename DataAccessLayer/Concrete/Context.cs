@@ -16,7 +16,7 @@ namespace DataAccessLayer.Concrete
         //About projemde yer alan sınıfın ismidir. Abouts ise DB'ye yansıyacak olan tablonun ismidir.
 
         public DbSet<Category> Categories { get; set; }
-        public DbSet<Contect> Contects { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
         public DbSet<Content> Contents { get; set; }
         public DbSet<Heading> Headings { get; set; }
         public DbSet<Writer> Writers { get; set; }
