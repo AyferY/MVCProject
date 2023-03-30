@@ -1,49 +1,26 @@
 ﻿using BusinessLayer.Abstract;
 using DataAccessLayer.Abstract;
-using DataAccessLayer.Concrete.Repositories;
 using EntityLayer.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BusinessLayer.Concrete
 {
-    public class CategoryManager : ICategoryService
+    public class CategoryManager : ICategoryService  //Oluşturduğum interface'i çektim.
     {
-        ICategoryDal _categorydal;
-        public List<Category> GetList()
+        ICategoryDal _categorydal; //Category'leri döndermek için ICategoryDal'ı kullanmam gerekiyor. _categorydal'ı türettim.
+
+        //GenericRepository'de constructor method oluşturup içine veri eklemesi yapmıştık.
+        //Burada da aynı mantıkla ilerliycez. _categorydal'ı doldurmamız lazım.
+
+        public CategoryManager(ICategoryDal categoryDal)
         {
-            return 
+            _categorydal= categoryDal;  //Burada sadece categoryDal içindeki methodları aktarmış oldun.
         }
 
-        //GenericRepository<Category> repo = new GenericRepository<Category>();
-
-
-
-        //public List<Category> GetAllBL()   //GetAllBL liste tipinde ve Category türünde bit method.
-        //{
-        //    return repo.List();  // GenericRepository'den gelen List methodunu içinde çalıştırıyoruz ve bu sayede GetAllBL
-        //                         // dönderdiğimizde geliyor.
-
-        //}
-
-        //public void CategoryAddBL(Category p)  //Category tipindeki p değeri ile çalışacak bu method ve değer dönmeyecek(void).
-        //{
-
-
-
-        //    if (p.CategoryName == "" || p.CategoryName.Length <= 3 ||
-        //        p.CategoryDescription == "" || p.CategoryName.Length >= 51)
-        //    {
-        //        //hata mesajı
-        //    }
-        //    else
-        //    {
-        //        repo.Insert(p);
-        //    }
-        //}
+        //Burada set işlemini yaptık artık listeleme, return kısmına geçebiliriz.
+        public List<Category> GetList()
+        {
+            return _categorydal.List();
+        }
 
     }
 }

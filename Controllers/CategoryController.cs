@@ -7,10 +7,9 @@ namespace MVCProject.Controllers
     public class CategoryController : Controller
     {
 
-        //Get Category Manager
+       
 
-        CategoryManager cm = new CategoryManager();   // Başka bir sınıfı çağırma bu şekilde olur.
-                                                      // Bu class'da artık her yerde bu sınıfı cm diye çağırırsın.
+        CategoryManager cm = new CategoryManager();
         public IActionResult Index()
         {
             return View();
@@ -30,9 +29,7 @@ namespace MVCProject.Controllers
 
         }
 
-        //Burada diyorsun ki; AddCategory, HttpPost işlemi oluştuğu zaman devreye girsin diyorsun.
-        //post ne demek bu projede sayfada bir şeye tıkladığın zaman post methodu devreye girer o da buraya gelir,
-        //çünkü o tıklanan yerde bunu adreslemiştin. Bu sayede butona her basıldığında ekleme işlemi yapılmamış olur.
+       
         [HttpPost]           
         public ActionResult AddCategory(Category p)
         {
